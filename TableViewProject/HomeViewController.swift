@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     @IBOutlet var userEntry: UITextField?
-    var rawUserData: [String] = []
+    var rawUserData: [Data] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +28,8 @@ class HomeViewController: UIViewController {
         let value: String = userEntry?.text ?? ""
         let diary = DiaryVC()
         let theDatar = Data(input: value)
-        print(theDatar)
-        diary.recieveData(data: theDatar)
-        userEntry?.text = ""
+        rawUserData.append(theDatar)
+        diary.recieveData(data: rawUserData)
     }
     
     @IBAction func diaryButton(_ sender: UIButton) {

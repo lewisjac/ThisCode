@@ -14,7 +14,7 @@ class DiaryVC: UITableViewController {
     var dataSet: [Data] = []
     var dataInTransit: [Data] = []
     var theCount: Int?
-    var newData: Data?
+    var newData: [Data]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +26,15 @@ class DiaryVC: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         dataSet = createDataSet()
-       
     }
     
-    func recieveData(data: Data) {
+    func recieveData(data: [Data]) {
         let newData = data
-        dataInTransit.append(newData)
-        print(dataInTransit.count)
+        print(newData.count)
     }
     
     func createDataSet() -> [Data] {
+        dataInTransit = newData!
         return dataInTransit
     }
     
