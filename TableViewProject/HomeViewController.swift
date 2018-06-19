@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet var userEntry: UITextField?
     var rawUserData: [String] = []
+    let ram = Storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +26,15 @@ class HomeViewController: UIViewController {
 
     
     @IBAction func submitEntryButton(_ sender: UIButton) {
-        let value: String = userEntry?.text ?? ""
-        let diary = DiaryVC()
-        let theDatar = Data(input: value)
-        print(theDatar)
-        diary.recieveData(data: theDatar)
+        let newData: String = userEntry?.text ?? ""
+        ram.set(newData: newData)
         userEntry?.text = ""
     }
+    
+    /*
+        
+    */
+    
     
     @IBAction func diaryButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)    // know what these do

@@ -11,8 +11,8 @@ import UIKit
 class DataCell: UITableViewCell {
     @IBOutlet weak var dataLabelOne: UILabel!
     
-    func setLabel(input: Data) {
-        dataLabelOne.text = input.userInput
-        print("From DataCell: \(input.userInput)")
+    func setLabel(input: String) {
+        dataLabelOne.text = input
+        print("From DataCell: \(input)")
     }
 }

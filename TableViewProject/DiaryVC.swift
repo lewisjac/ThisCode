@@ -11,10 +11,11 @@ import UIKit
 class DiaryVC: UITableViewController {
    
     @IBOutlet weak var myTableView: UITableView!
-    var dataSet: [Data] = []
-    var dataInTransit: [Data] = []
+    var dataSet: [String] = []
+    var dataInTransit: [String] = []
     var theCount: Int?
-    var newData: Data?
+    var newData: [String] = []
+    let ram = Storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,19 +26,10 @@ class DiaryVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        dataSet = createDataSet()
+        dataSet = ram.get()
        
     }
     
-    func recieveData(data: Data) {
-        let newData = data
-        dataInTransit.append(newData)
-        print(dataInTransit.count)
-    }
-    
-    func createDataSet() -> [Data] {
-        return dataInTransit
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSet.count

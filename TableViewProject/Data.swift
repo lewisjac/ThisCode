@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/*
 class Data {
     var userInput: String
     
@@ -21,3 +22,4 @@ class Data {
         return userInput
     }
 }
+ */
