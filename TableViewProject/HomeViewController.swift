@@ -11,7 +11,11 @@ import UIKit
 class HomeViewController: UIViewController {
     
     @IBOutlet var userEntry: UITextField?
-    var rawUserData: [String] = []
+    static let sharedInstance = HomeViewController()
+    var rawUserData: [Data] = []
+    let diary = DiaryVC()
+    let storage = DataStorage()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +30,8 @@ class HomeViewController: UIViewController {
     
     @IBAction func submitEntryButton(_ sender: UIButton) {
         let value: String = userEntry?.text ?? ""
-        let diary = DiaryVC()
         let theDatar = Data(input: value)
-        print(theDatar)
-        diary.recieveData(data: theDatar)
+        storage.setData(data: theDatar)
         userEntry?.text = ""
     }
     

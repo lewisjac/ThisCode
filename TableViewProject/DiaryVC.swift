@@ -15,6 +15,8 @@ class DiaryVC: UITableViewController {
     var dataInTransit: [Data] = []
     var theCount: Int?
     var newData: Data?
+    let storage = DataStorage()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +31,15 @@ class DiaryVC: UITableViewController {
        
     }
     
-    func recieveData(data: Data) {
-        let newData = data
-        dataInTransit.append(newData)
-        print(dataInTransit.count)
+    func storeData(input: Data) {
+        dataSet.append(input)
+        print(dataSet.count)
     }
     
+    
     func createDataSet() -> [Data] {
+        dataInTransit = storage.sendTheDatar()
+        print("this is the data: \(dataInTransit)")
         return dataInTransit
     }
     
